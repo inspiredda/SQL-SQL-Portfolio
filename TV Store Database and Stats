@@ -1,0 +1,17 @@
+CREATE TABLE TVs (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, screen_size INTEGER);
+
+INSERT INTO TVs (name, price, screen_size) VALUES ("Vizio",199, 19);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Sony",219, 22);
+INSERT INTO TVs (name, price, screen_size) VALUES ("LG",299, 32);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Samsung",399, 43);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Insignia",419, 46);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Toshiba",499, 52);
+INSERT INTO TVs (name, price, screen_size) VALUES ("TCL",599, 55);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Hisense",699, 55);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Peerless",799, 60);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Sylvox",899, 65);
+INSERT INTO TVs (name, price, screen_size) VALUES ("SunBrite",999, 70);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Furrion Aurora",1099, 75);
+INSERT INTO TVs (name, price, screen_size) VALUES ("Sharp",1199, 80);
+
+SELECT * FROM TVs WHERE screen_size < 55;
