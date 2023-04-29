@@ -1,0 +1,43 @@
+CREATE TABLE Famous_People (id INTEGER PRIMARY KEY, name TEXT, movie TEXT, movie_type TEXT);
+
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Robert Downey Jr", "Avengers", "Action");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Jennifer Lawrence", "Dark Phoenix", "Action");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("George Clooney", "Gravity", "Sci-fi");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Anna Kendrick", "Mr Right", "Action");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Leonardo Dicaprio", "The Revenant", "Suspense");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Sandra Bullock", "The Blind Side", "Drama");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Samuel L Jackson", "Jurassic Park", "Scifi");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Eva Green", "Dark Shadows", "Fantasy");
+INSERT INTO Famous_People (name, movie, movie_type) VALUES ("Johnny Depp", "Secret Window", "Thriller");
+
+SELECT name FROM Famous_People WHERE movie_type ="Action";
+
+CREATE TABLE Hobbies (id INTEGER PRIMARY KEY, name TEXT, hobby TEXT);
+
+INSERT INTO Hobbies (name, hobby) VALUES ("Robert Downey Jr", "Wing Chun");
+INSERT INTO Hobbies (name, hobby) VALUES ("Jennifer Lawrence", "Painting");
+INSERT INTO Hobbies (name, hobby) VALUES ("George Clooney", "Making Shoes");
+INSERT INTO Hobbies (name, hobby) VALUES ("Anna Kendrick", "Watching Movies");
+INSERT INTO Hobbies (name, hobby) VALUES ("Leonardo DiCaprio", "Scuba Diving");
+INSERT INTO Hobbies (name, hobby) VALUES ("Sandra Bullock", "Hiking");
+INSERT INTO Hobbies (name, hobby) VALUES ("Samuel L Jackson", "Golf");
+INSERT INTO Hobbies (name, hobby) VALUES ("Eva Green", "Collecting Art");
+INSERT INTO Hobbies (name, hobby) VALUES ("Johnny Depp", "Wine Making");
+
+
+SELECT p.name,h.hobby
+
+FROM Famous_People p
+
+JOIN hobbies h
+
+ON p.id=h.id;
+
+
+SELECT p.name, p.movie_type,h.hobby
+
+FROM Famous_People p
+
+JOIN hobbies h
+
+ON p.id=h.id;
