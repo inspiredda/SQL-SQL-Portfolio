@@ -33,7 +33,6 @@ JOIN hobbies h
 
 ON p.id=h.id;
 
-
 SELECT p.name, p.movie_type,h.hobby
 
 FROM Famous_People p
