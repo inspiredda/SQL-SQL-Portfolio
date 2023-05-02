@@ -69,6 +69,9 @@ GROUP BY location
 HAVING count(orderID)>2
 
 #10.How many of each type of headphone were sold in February?
-
+SELECT sum(Quantity) AS Quantity, Product
+FROM BIT_DB.FebSales
+WHERE Product LIKE '%headphones%'
+GROUP BY Product
 
 #11What was the average amount spent per account in February?
