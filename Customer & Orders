@@ -38,7 +38,8 @@ SELECT Product, SUM(quantity)
 FROM BIT_DB.FebSales 
 WHERE location like '%Los Angeles%'
 GROUP BY Product
-#6. Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+
+#7. Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
 select 
 sum(Quantity), 
 product, 
@@ -47,7 +48,7 @@ FROM BIT_DB.FebSales
 WHERE location = '548 Lincoln St, Seattle, WA 98101'
 GROUP BY product
 
-#7. How many customers ordered more than 2 products at a time, and what was the average amount spent for those customers? 
+#8. How many customers ordered more than 2 products at a time, and what was the average amount spent for those customers? 
 select 
 count(distinct cust.acctnum), 
 avg(quantity*price)
@@ -57,3 +58,17 @@ ON FEB.orderid=cust.order_id
 WHERE Feb.Quantity>2
 AND length(orderid) = 6 
 AND orderid <> 'Order ID'
+
+#9. #6. Which locations in New York received at least 3 orders in January, and how many orders did they each receive?
+SELECT distinct location, count(orderID)
+FROM BIT_DB.JanSales
+WHERE location LIKE '%NY%'
+AND length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY location
+HAVING count(orderID)>2
+
+#10.How many of each type of headphone were sold in February?
+
+
+#11What was the average amount spent per account in February?
