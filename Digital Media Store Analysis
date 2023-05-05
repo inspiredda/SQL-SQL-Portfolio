@@ -1,0 +1,38 @@
+1.How many countries are in the Customer table?
+SELECT Count(country) FROM chinook.customers
+
+2.List customers their first name, last name, and country who are not from the USA or United Kingdom order by country
+SELECT FirstName, LastName, Country FROM customers
+WHERE country <> 'USA' AND country <> 'United Kingdom'
+ORDER BY country
+
+3.List First name, Last name, and city of customers from Canada
+SELECT FirstName, LastName, City FROM customers
+WHERE country = 'Canada'
+
+4.Find invoices of customers first name, last name, Date of the invoice, city group by invoice date
+SELECT FirstName, LastName, invoicedate, city FROM customers
+INNER JOIN invoices 
+ON customers.Customerid = invoices.CustomerId
+GROUP BY invoicedate
+
+5.List the customers first name, last name, their supportrep title, and hire date**/
+SELECT FirstName, LastName, Employeeid, HireDate FROM customers
+LEFT JOIN employees
+ON customers.SupportRepID = employees.Employeeid
+ORDER BY Employeeid
+
+6.List the quantity, unit price, invoice date, customer ID, and billing city
+SELECT quantity, UnitPrice, invoicedate, customerid, billingcity FROM invoice_items
+INNER JOIN invoices
+ON invoice_items.invoiceid = invoices.InvoiceId
+ORDER BY billingcity DESC
+
+7.Display invoices date and customers associated with each sales agent, including the sales agent's first and last name
+SELECT e.employeeid, e.FirstName AS EmployeeFirstName, e.LastName AS EmployeeLastName, c.FirstName AS CustomerFirstName, c.LastName AS CustomerLastName, i.invoicedate
+FROM employees e
+JOIN customers c
+ON e.Employeeid = c.SupportRepID
+JOIN invoices i
+ON i.customerid = c.CustomerId
+ORDER BY 'employee'
