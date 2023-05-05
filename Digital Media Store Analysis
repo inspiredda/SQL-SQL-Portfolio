@@ -36,3 +36,7 @@ ON e.Employeeid = c.SupportRepID
 JOIN invoices i
 ON i.customerid = c.CustomerId
 ORDER BY 'employee'
+
+8.How many invoices were there between 2009 and 2010?
+SELECT count(invoicedate) FROM invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2010-12-31'
