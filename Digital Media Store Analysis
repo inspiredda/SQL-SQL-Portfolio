@@ -40,3 +40,14 @@ ORDER BY 'employee'
 8.How many invoices were there between 2009 and 2010?
 SELECT count(invoicedate) FROM invoices
 WHERE InvoiceDate BETWEEN '2009-01-01' AND '2010-12-31'
+
+9List Genre, Track Name, Album Name, and Artist
+SELECT g.Name AS Genre, t.Name AS TrackName, a.Title AS AlbumName, ar.Name AS Artist
+FROM tracks t
+JOIN genres g 
+ON g.GenreId = t.GenreId
+JOIN albums a
+ON a.AlbumId = t.AlbumId
+JOIN artists ar
+ON ar.ArtistId = a.ArtistId
+ORDER BY Artist
