@@ -51,3 +51,24 @@ ON a.AlbumId = t.AlbumId
 JOIN artists ar
 ON ar.ArtistId = a.ArtistId
 ORDER BY Artist
+
+10.Count the total length of all tracks in milliseconds 
+SELECT count(milliseconds) FROM tracks
+
+11.Calculate the avergae size of the tracks in bytes
+SELECT avg(bytes) FROM tracks
+
+12. Round the bytes to two decimal places 
+SELECT ROUND(AVG(bytes), 2) AS AvgBytes
+FROM tracks
+
+13.List the Media type, composer, and playlist 
+SELECT m.Name AS MediaType, t.Composer AS Composer, pl.Name AS Playlist
+FROM media_types m
+JOIN tracks t
+ON m.MediaTypeId = t.MediaTypeId
+JOIN playlist_track pt
+ON pt.TrackId = t.TrackId
+JOIN playlists pl
+ON pl.PlaylistId = pt.PlaylistId
+ORDER BY playlist
